@@ -317,3 +317,14 @@ function drawSection(gid){
   let w,h,el;
   if(meta.family==='Solid rectangle'){w=p.b;h=p.h;
     const s=Math.min(200/w,105/h),ox=110-w*s/2,oy=10+(105-h*s)/2;
+    el=document.createElementNS(NS,'rect');
+    el.setAttribute('x',ox);el.setAttribute('y',oy);el.setAttribute('width',w*s);el.setAttribute('height',h*s);
+  } else if(meta.family==='Circular hollow'){
+    const s=Math.min(200/p.Do,105/p.Do),cx=110,cy=10+105/2;
+    el=document.createElementNS(NS,'path');
+    el.setAttribute('d',`M ${cx-p.Do*s/2} ${cy} a ${p.Do*s/2} ${p.Do*s/2} 0 1 0 ${p.Do*s} 0 a ${p.Do*s/2} ${p.Do*s/2} 0 1 0 ${-p.Do*s} 0 Z M ${cx-p.Di*s/2} ${cy} a ${p.Di*s/2} ${p.Di*s/2} 0 1 1 ${p.Di*s} 0 a ${p.Di*s/2} ${p.Di*s/2} 0 1 1 ${-p.Di*s} 0 Z`);
+    el.setAttribute('fill-rule','evenodd');
+  } else {
+    let pts=[];
+    if(meta.family==='I-beam'){const{h,bf,tf,tw}=p;
+      pts=[[0,0],[bf,0],[bf,tf],[(bf+tw)/2,tf],[(bf+tw)/2,h-tf],[bf,h-tf],[bf,h],[0,h],[0,h-tf],[(bf-tw)/2,h-tf],[(bf-tw)/2,tf],[0,tf]];
