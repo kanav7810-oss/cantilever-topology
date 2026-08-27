@@ -34,7 +34,7 @@ only variable is geometry.
 | Load cases | point, UDL, triangular, combined, at 4 magnitudes |
 | Beam theory | Euler-Bernoulli bending + thin-walled shear, strip integration validated to &lt;0.05% |
 | Freeform analysis | 2D plane-stress finite element analysis |
-| Verification | selftest.py, 50 assertions, all passing |
+| Verification | selftest.py, 67 assertions, all passing |
 | Dataset | dataset.csv, 494 rows x 16 columns, zero missing values |
 
 ## Headline findings
