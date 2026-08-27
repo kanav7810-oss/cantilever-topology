@@ -163,3 +163,13 @@ img{max-width:100%;}
 <div class="exp-grid">
 <div>
 <div class="exp-row">
+<div><label style="font-size:12px;font-weight:600;color:var(--muted)">GEOMETRY</label><select id="selGeom"></select></div>
+<div><label style="font-size:12px;font-weight:600;color:var(--muted)">LOAD CONDITION</label><select id="selLoad"></select></div>
+</div>
+<div class="stat-row">
+<div class="stat"><div class="v" id="stVM">·</div><div class="k">Max von Mises (MPa)</div></div>
+<div class="stat"><div class="v" id="stDefl">·</div><div class="k">Tip deflection (mm)</div></div>
+<div class="stat"><div class="v" id="stSF">·</div><div class="k">Safety factor</div></div>
+</div>
+<div class="stat-row" style="grid-template-columns:repeat(3,1fr)">
+<div class="stat"><div class="v" id="stI">·</div><div class="k">I (mm&#8308;)</div></div>
