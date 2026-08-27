@@ -369,3 +369,13 @@ updateExplorer();
 
 /* ---------- scroll-spy ---------- */
 const navLinks=[...document.querySelectorAll('#nav a')];
+const spy=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){
+    navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}});
+},{rootMargin:'-35% 0px -60% 0px'});
+navLinks.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)spy.observe(s);});
+
+/* ---------- charts ---------- */
+new Chart(document.getElementById('chPareto'),{type:'scatter',
+  data:{datasets:PARETO},
+  options:{responsive:true,plugins:{legend:{position:'right'},
