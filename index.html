@@ -379,3 +379,13 @@ navLinks.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s
 new Chart(document.getElementById('chPareto'),{type:'scatter',
   data:{datasets:PARETO},
   options:{responsive:true,plugins:{legend:{position:'right'},
+    tooltip:{callbacks:{label:c=>`${c.raw.gid}: ${c.raw.x} mm, ${c.raw.y} MPa`}}},
+    scales:{x:{type:'logarithmic',title:{display:true,text:'Tip deflection (mm)'}},
+            y:{type:'logarithmic',title:{display:true,text:'Max von Mises stress (MPa)'}}}}});
+new Chart(document.getElementById('chSF'),{type:'line',
+  data:{labels:['100 N','500 N','1,000 N','5,000 N'],datasets:SFLOAD.map((d,i)=>({...d,borderColor:['#4A4A4A','#6D8196','#93A5B5','#BFC8D0','#55616D'][i],backgroundColor:'transparent',tension:0.2,pointRadius:4}))},
+  options:{responsive:true,plugins:{legend:{position:'right'},tooltip:{mode:'index'}},
+    scales:{y:{type:'logarithmic',title:{display:true,text:'Safety factor (log)'},},x:{title:{display:true,text:'Tip point load'}}}}});
+</script>
+</body>
+</html>
