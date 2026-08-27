@@ -359,3 +359,13 @@ function updateExplorer(){
     document.getElementById('stI').textContent=r[8].toLocaleString();
     document.getElementById('stMEI').textContent=r[6];
     document.getElementById('stUnif').textContent=r[7].toLocaleString();}
+  const m=GEOMETA[g];
+  document.getElementById('geomDesc').textContent=`${g} · ${m.family} · ${m.label} · structural steel, 100 cm³, 500 mm span`;
+  drawSection(g);
+}
+selG.addEventListener('change',updateExplorer);
+selL.addEventListener('change',updateExplorer);
+updateExplorer();
+
+/* ---------- scroll-spy ---------- */
+const navLinks=[...document.querySelectorAll('#nav a')];
