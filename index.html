@@ -18,3 +18,13 @@ body{font-family:'Libre Baskerville',Georgia,serif;background:var(--bg);color:va
 .mono{font-family:'JetBrains Mono',monospace;}
 em{font-style:italic;}
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,227,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:10px 20px;}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;font-style:italic;padding:7px 12px;border-radius:6px;white-space:nowrap;transition:.15s;}
+nav a:hover{color:var(--card);background:var(--accent);}
+nav a.active{color:var(--bg);background:var(--accent2);}
+nav a:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;}
+section{max-width:1180px;margin:0 auto;padding:72px 20px 8px;scroll-margin-top:64px;}
+h2{font-size:28px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;line-height:1.25;}
+h2 .num{color:var(--accent);font-weight:700;margin-right:12px;font-style:italic;}
+.sub{color:var(--muted);font-size:14.5px;font-style:italic;margin-bottom:24px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:28px;}
