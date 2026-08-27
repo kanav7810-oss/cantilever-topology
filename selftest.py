@@ -13,13 +13,22 @@ def check(name, cond, detail=''):
         fails.append(name + (' :: ' + detail if detail else ''))
 
 html = io.open(os.path.join(FOLDER, 'index.html'), encoding='utf-8').read()
+css = io.open(os.path.join(FOLDER, 'style.css'), encoding='utf-8').read()
+js = io.open(os.path.join(FOLDER, 'script.js'), encoding='utf-8').read()
 
-# 1) no em/en dashes anywhere in HTML
-check('no em dash in index.html', '\u2014' not in html)
-check('no en dash in index.html', '\u2013' not in html)
-# 2) no em/en dash entities
-check('no &8212; entity', '&#8212;' not in html)
-check('no &8211; entity', '&#8211;' not in html)
+# 1) no em/en dashes anywhere in HTML/CSS/JS
+for name, txt in [('index.html', html), ('style.css', css), ('script.js', js)]:
+    check('no em dash in ' + name, '\u2014' not in txt)
+    check('no en dash in ' + name, '\u2013' not in txt)
+    check('no &8212; entity in ' + name, '&#8212;' not in txt)
+    check('no &8211; entity in ' + name, '&#8211;' not in txt)
+# 1b) stylesheet and script are externalized
+check('style.css linked', '<link rel="stylesheet" href="style.css">' in html)
+check('script.js loaded', '<script src="script.js"></script>' in html)
+check('no inline style block', '<style>' not in html)
+for token in ['const DATA', 'const GEOMETA', 'const TOPO']:
+    check('inline %s removed from html' % token.split()[1], token not in html)
+    check('%s present in script.js' % token, token in js)
 # 3) forbidden words absent on page
 for w in ['limitation','caveat','future work','open question','unresolved','weakness','not modeled','did not model']:
     check('no "%s" on page' % w, w not in html.lower())
