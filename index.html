@@ -204,3 +204,13 @@ img{max-width:100%;}
 <div class="step"><h3>Compare at <em>equal material</em></h3><p>Every design uses exactly 100 cm&#179; of structural steel over a 500 mm span, so performance differences are attributable to geometry alone. Seven metrics per combination (stress, deflection, safety factor, efficiency, uniformity, mass, moment of inertia) fill a 494-row dataset with zero missing values.</p></div>
 </div>
 </section>
+
+<section id="graphs">
+<h2><span class="num">06</span>Graphs</h2>
+<div class="sub">Seven study figures plus two interactive charts</div>
+<div class="fig-grid">
+<div class="fig-card wide"><canvas class="chart" id="chPareto" height="120"></canvas><div class="cap"><b>Interactive:</b> deflection vs. stress at 1000 N tip load (log-log), colored by family. Hover for geometry names.</div></div>
+<div class="fig-card wide"><canvas class="chart" id="chSF" height="120"></canvas><div class="cap"><b>Interactive:</b> safety factor vs. tip-load magnitude for the top 5 geometries (log-log; exact 1/P scaling).</div></div>
+<div class="fig-card"><img src="graph1_geometry_ranking.svg" alt="Top 20 geometry ranking"><div class="cap"><b>Graph 1.</b> Top 20 geometries by mean safety factor across all 13 load cases. SIMP freeform designs fill the top 9 positions.</div></div>
+<div class="fig-card"><img src="graph2_pareto_front.svg" alt="Pareto front"><div class="cap"><b>Graph 2.</b> Deflection-stress tradeoff at 1000 N. SIMP-TIP-2 is the sole Pareto-optimal geometry.</div></div>
+<div class="fig-card wide"><img src="graph3_heatmap_safety_factor.svg" alt="Safety factor heatmap"><div class="cap"><b>Graph 3.</b> Mean safety factor by geometry family and load condition (log scale). The SIMP row dominates every column; heavy distributed loads (UDL100, combined) defeat every family.</div></div>
