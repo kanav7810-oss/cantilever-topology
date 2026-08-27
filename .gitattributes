@@ -1,0 +1,9 @@
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript linguist-detectable
+*.py linguist-language=Python
+*.ipynb linguist-language=Jupyter Notebook
+*.md linguist-language=Markdown
+*.csv linguist-language=CSV
+*.json linguist-language=JSON
+*.svg linguist-language=SVG
