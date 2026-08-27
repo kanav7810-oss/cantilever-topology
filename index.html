@@ -235,3 +235,13 @@ img{max-width:100%;}
 <div class="card" style="margin-bottom:18px">
 <p style="font-size:14.5px">Each freeform geometry was produced by Solid Isotropic Material with Penalization (SIMP): the 500&#215;100 mm design domain is discretized into quadrilateral plane-stress finite elements whose densities are design variables. Element stiffness scales with density cubed (p=3), which drives the design toward a black-and-white structure; a density filter (r=1.5-3 elements) enforces a minimum feature size; an optimality-criteria update iterates until the compliance (F&#183;u) is minimized subject to a 40% volume constraint. A one-element passive solid skin along the top and right edges guarantees well-posed load introduction for every load case. The converged 2D topology is extruded to &#8776;5 mm thickness so total volume equals 100 cm&#179;, then evaluated under all 13 load cases by FEA.</p>
 <p style="font-size:14.5px;margin-top:10px">The progression below shows the density field evolving from a uniform gray start to the classical truss-like cantilever: material migrates to the top and bottom chords and diagonal web members, converting bending into axial strut action - the mechanism behind the 227% efficiency gain.</p></div>
+<div class="fig-card"><img src="graph7_simp_progression.svg" alt="SIMP progression" style="width:100%"><div class="cap"><b>Graph 7.</b> SIMP-TIP-2 density evolution (iterations 1, 3, 5, 10, 20, 40, final) and compliance history. Compliance fell 21,419 &#8594; 4,390 N&#183;mm (&#8722;79%) over 100 iterations; final volume fraction 0.401.</div></div>
+</section>
+
+<section id="paper">
+<h2><span class="num">09</span>The Study</h2>
+<div class="sub">Full results, on request</div>
+<div class="card">
+<p style="font-size:15px;line-height:1.8">This study ran 494 controlled simulations at equal material use and found that topology-optimized freeform designs beat every hand-designed beam section, with the best geometry reaching a mean safety factor of 3.46, up to 227% above the best classical cross-section. The write-up, dataset, and figures are all available.</p>
+<div class="dl" style="margin-top:18px">
+<a href="research_paper_humanized.md" download>The write-up (.md)</a>
