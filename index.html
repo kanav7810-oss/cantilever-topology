@@ -338,3 +338,13 @@ function drawSection(gid){
       svg.appendChild(el);return;}
     else if(meta.family==='T-section'){const{h,bf,tf,tw}=p;w=bf;
       pts=[[(bf-tw)/2,0],[(bf+tw)/2,0],[(bf+tw)/2,h-tf],[bf,h-tf],[bf,h],[0,h],[0,h-tf],[(bf-tw)/2,h-tf]];
+      pts=pts.map(([x,y])=>[x,h-y]);}
+    else if(meta.family==='Trapezoidal'){const{h,b_bottom,b_top}=p;w=Math.max(b_bottom,b_top);
+      pts=[[(w-b_bottom)/2,0],[(w+b_bottom)/2,0],[(w+b_top)/2,h],[(w-b_top)/2,h]];
+      pts=pts.map(([x,y])=>[x,h-y]);}
+    const s=Math.min(200/w,105/h);
+    const d=pts.map(([x,y],i)=>`${i?'L':'M'} ${(110-w*s/2+x*s).toFixed(1)} ${(10+(105-h*s)/2+y*s).toFixed(1)}`).join(' ')+' Z';
+    el=document.createElementNS(NS,'path');el.setAttribute('d',d);
+  }
+  el.setAttribute('fill','#6D8196');el.setAttribute('stroke','#4A4A4A');el.setAttribute('stroke-width','1');
+  svg.appendChild(el);
