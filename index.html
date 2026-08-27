@@ -286,3 +286,14 @@ const LOAD_LABEL = {P100:"Point 100 N",P500:"Point 500 N",P1000:"Point 1,000 N",
 
 /* ---------- lookup ---------- */
 const LOOKUP = {};
+DATA.forEach(r => LOOKUP[r[0]+"|"+r[2]] = r);
+const selG = document.getElementById('selGeom'), selL = document.getElementById('selLoad');
+const fams = {};
+Object.keys(GEOMETA).forEach(g=>{const f=GEOMETA[g].family;(fams[f]=fams[f]||[]).push(g);});
+Object.keys(fams).forEach(f=>{const og=document.createElement('optgroup');og.label=f;
+  fams[f].forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=g+' · '+GEOMETA[g].label;og.appendChild(o);});
+  selG.appendChild(og);});
+LOADS.forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=LOAD_LABEL[l];selL.appendChild(o);});
+selG.value="SIMP-TIP-2"; selL.value="P1000";
+
+function drawSection(gid){
