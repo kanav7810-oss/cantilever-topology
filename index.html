@@ -348,3 +348,14 @@ function drawSection(gid){
   }
   el.setAttribute('fill','#6D8196');el.setAttribute('stroke','#4A4A4A');el.setAttribute('stroke-width','1');
   svg.appendChild(el);
+}
+
+function updateExplorer(){
+  const g=selG.value,l=selL.value,r=LOOKUP[g+"|"+l];
+  if(r){document.getElementById('stVM').textContent=r[3].toLocaleString();
+    document.getElementById('stDefl').textContent=r[4].toLocaleString();
+    const sf=document.getElementById('stSF');sf.textContent=r[5];
+    sf.style.color=r[5]>=1?'#3F5062':(r[5]>=0.3?'#6B6A50':'#a11');
+    document.getElementById('stI').textContent=r[8].toLocaleString();
+    document.getElementById('stMEI').textContent=r[6];
+    document.getElementById('stUnif').textContent=r[7].toLocaleString();}
