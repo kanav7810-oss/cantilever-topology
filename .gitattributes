@@ -1,8 +1,8 @@
 *.html linguist-language=HTML
-*.css linguist-language=CSS
+*.css linguist-language=CSS linguist-detectable
 *.js linguist-language=JavaScript linguist-detectable
 *.py linguist-language=Python
-*.ipynb linguist-language=Jupyter Notebook
+*.ipynb linguist-language="Jupyter Notebook" linguist-detectable
 *.md linguist-language=Markdown
 *.csv linguist-language=CSV
 *.json linguist-language=JSON
