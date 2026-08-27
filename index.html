@@ -328,3 +328,13 @@ function drawSection(gid){
     let pts=[];
     if(meta.family==='I-beam'){const{h,bf,tf,tw}=p;
       pts=[[0,0],[bf,0],[bf,tf],[(bf+tw)/2,tf],[(bf+tw)/2,h-tf],[bf,h-tf],[bf,h],[0,h],[0,h-tf],[(bf-tw)/2,h-tf],[(bf-tw)/2,tf],[0,tf]];
+      w=bf;}
+    else if(meta.family==='Hollow rectangle'){const{h,b,t}=p;w=b;
+      const s=Math.min(200/b,105/h),ox=110-b*s/2,oy=10+(105-h*s)/2;
+      el=document.createElementNS(NS,'path');
+      el.setAttribute('d',`M ${ox} ${oy} h ${b*s} v ${h*s} h ${-b*s} Z M ${ox+t*s} ${oy+t*s} h ${(b-2*t)*s} v ${(h-2*t)*s} h ${-(b-2*t)*s} Z`);
+      el.setAttribute('fill-rule','evenodd');
+      el.setAttribute('fill','#6D8196');el.setAttribute('stroke','#4A4A4A');el.setAttribute('stroke-width','1');
+      svg.appendChild(el);return;}
+    else if(meta.family==='T-section'){const{h,bf,tf,tw}=p;w=bf;
+      pts=[[(bf-tw)/2,0],[(bf+tw)/2,0],[(bf+tw)/2,h-tf],[bf,h-tf],[bf,h],[0,h],[0,h-tf],[(bf-tw)/2,h-tf]];
