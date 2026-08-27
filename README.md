@@ -57,6 +57,8 @@ Full details: [research_paper_humanized.md](research_paper_humanized.md) and
 
 ```
 index.html              interactive research overview (live at the link above)
+style.css               site styles
+script.js               explorer + dataset (embedded DATA, 494 rows) + interactive charts
 favicon.svg             custom cantilever mark
 research_paper.md       full manuscript
 research_paper_humanized.md  web edition, humanized prose
@@ -73,7 +75,7 @@ assets/screenshots/     site screenshots used in this README
 Open `index.html` in any browser, or visit the live deployment at
 https://cantilever-beam-topology-optim.vercel.app. The page is self-contained apart from web fonts
 and the Chart.js CDN, and falls back to Georgia offline. The interactive explorer draws every
-geometry cross-section from data embedded in the page.
+geometry cross-section from `script.js`, which embeds the full 494-row dataset.
 
 ## Provenance
 
